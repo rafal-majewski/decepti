@@ -28,9 +28,9 @@
 	"remoteEnv": {},
 	"remoteUser": "developer",
 	"securityOpt": [],
-	"service": "template-of-sveltekit-application",
+	"service": "decepti",
 	"shutdownAction": "stopCompose",
 	"updateRemoteUserUID": true,
 	"userEnvProbe": "none",
-	"workspaceFolder": "/home/developer/template-of-sveltekit-application"
+	"workspaceFolder": "/home/developer/decepti"
 }

@@ -5,7 +5,7 @@
 		"url": "https://github.com/rafal-majewski"
 	},
 	"bugs": {
-		"url": "https://github.com/native-typescript/template-of-sveltekit-application/issues"
+		"url": "https://github.com/native-typescript/decepti/issues"
 	},
 	"dependencies": {
 		"@native-typescript/loader-of-typescript-for-node-js": "4.0.0",
@@ -55,11 +55,11 @@
 		"node": ">=25.9.0",
 		"npm": ">=11.9.0"
 	},
-	"homepage": "https://github.com/native-typescript/template-of-sveltekit-application#readme",
-	"name": "@native-typescript/template-of-sveltekit-application",
+	"homepage": "https://github.com/native-typescript/decepti#readme",
+	"name": "@native-typescript/decepti",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/native-typescript/template-of-sveltekit-application.git"
+		"url": "git+https://github.com/native-typescript/decepti.git"
 	},
 	"scripts": {
 		"build": "node --env-file-if-exists='./.env' ./node_modules/.bin/svelte-kit sync && node --env-file-if-exists='./.env' ./node_modules/.bin/vite build --configLoader=native",
