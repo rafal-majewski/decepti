@@ -4,7 +4,6 @@
 	const props: PageProps = $props();
 </script>
 
-<client_.core_.root_.page_.Page message={props.data.message}
-></client_.core_.root_.page_.Page>
+<client_.core_.root_.page_.Page></client_.core_.root_.page_.Page>
 
 <style lang="scss"></style>

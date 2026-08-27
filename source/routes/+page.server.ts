@@ -6,18 +6,18 @@ import type {
 	RouteId,
 	RouteParams,
 } from "./$types.d.ts";
-type OutputData = {readonly message: string};
+type OutputData = {readonly [key: string]: never};
 export const load = (
 	{
 		node: async function nodeLoad(
 			event: PageServerLoadEvent,
 		): Promise<OutputData> {
-			return {message: `Hello from the Node adapter!`};
+			return {};
 		},
 		static: async function staticLoad(
 			event: PageServerLoadEvent,
 		): Promise<OutputData> {
-			return {message: `Hello from the static adapter!`};
+			return {};
 		},
 	} as const satisfies server_.loadingFunctionsOfPages_.Functions<
 		RouteParams,

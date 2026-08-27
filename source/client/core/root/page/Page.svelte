@@ -1,7 +1,7 @@
 <script lang="ts">
-	const props: {readonly message: string} = $props();
+	const props: {readonly [key: string]: never} = $props();
 </script>
 
-<div>{props.message}</div>
+<div></div>
 
 <style lang="scss"></style>
