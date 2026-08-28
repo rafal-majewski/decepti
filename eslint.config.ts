@@ -672,7 +672,7 @@ export default [
 			"no-inner-declarations": [
 				`warn`,
 				`both`,
-				{blockScopedFunctions: `disallow`},
+				{blockScopedFunctions: `allow`},
 			],
 			"no-invalid-regexp": [`error`, {}],
 			"no-irregular-whitespace": [
@@ -1164,7 +1164,7 @@ export default [
 			"no-inner-declarations": [
 				`warn`,
 				`both`,
-				{blockScopedFunctions: `disallow`},
+				{blockScopedFunctions: `allow`},
 			],
 		},
 	},
@@ -1238,7 +1238,7 @@ export default [
 			"svelte/no-inner-declarations": [
 				`warn`,
 				`both`,
-				{blockScopedFunctions: `disallow`},
+				{blockScopedFunctions: `allow`},
 			],
 			"svelte/no-inspect": [`warn`],
 			"svelte/no-navigation-without-resolve": [
