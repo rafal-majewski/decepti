@@ -4,7 +4,7 @@ export async function create<Data>(): Promise<
 > {
 	const streamWithController: streamWithController_.StreamWithController<Data> =
 		await new Promise<streamWithController_.StreamWithController<Data>>(
-			function (
+			function execute(
 				resolve: (
 					value: streamWithController_.StreamWithController<Data>,
 				) => void,
