@@ -14,7 +14,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		} else {
 			const streamer: server_.core_.streamingEvents_.Streamer<client_.core_.snapshotOfGame_.Snapshot> =
 				await server_.core_.streamingEvents_.Streamer.create<client_.core_.snapshotOfGame_.Snapshot>(
-					`gameState`,
+					`gameUpdated`,
 				);
 			streamer.feed(currentGame.snapshotify());
 			function handleGameUpdated(updatedGame: server_.core_.game_.Game): void {
@@ -27,7 +27,6 @@ export async function GET(event: RequestEvent): Promise<Response> {
 					instances_.storageOfGame_.storageOfGame.removeListener(
 						handleGameUpdated,
 					);
-					streamer.destroy();
 					return;
 				},
 				{once: true},

@@ -1,5 +1,6 @@
 import {resolve} from "$app/paths";
 import type {snapshotOfGame_} from "../../snapshot-of-game/module.ts";
+import * as devalue from "devalue";
 import {on} from "svelte/events";
 export class Manager {
 	public static create(
@@ -14,8 +15,10 @@ export class Manager {
 			`gameUpdated`,
 			function handleGameUpdated(event: Event): void {
 				if (event instanceof MessageEvent) {
-					/* eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion */
-					onGameUpdated(event.data as snapshotOfGame_.Snapshot);
+					const updatedGame: snapshotOfGame_.Snapshot = devalue.parse(
+						event.data as string,
+					) as snapshotOfGame_.Snapshot;
+					onGameUpdated(updatedGame);
 					return;
 				} else {
 					return;

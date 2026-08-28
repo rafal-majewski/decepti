@@ -10,6 +10,7 @@
 	"dependencies": {
 		"@native-typescript/loader-of-typescript-for-node-js": "4.0.0",
 		"@native-typescript/stringifying-zod-issues": "7.0.0",
+		"devalue": "5.9.2",
 		"zod": "4.4.3"
 	},
 	"description": "A template of a SvelteKit application.",

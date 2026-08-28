@@ -72,36 +72,37 @@
 </script>
 
 <div
-	>{#if isEnhanced}{#if isPhotoTaken && urlOfPhoto !== undefined}<img
-				alt="Twoje zdjęcie"
-				src={urlOfPhoto} /><button
-				onclick={handlers.openDialog}
-				type="button">Zrób ponownie</button
-			>{:else}<button
-				onclick={handlers.openDialog}
-				type="button">Dodaj zdjęcie</button
-			>{/if}{/if}{#if message}<p>{message}</p>{/if}<label
-		><span>Zdjęcie:</span><input
+	><label
+		><span>Zdjęcie:</span>
+		{#if isEnhanced}{#if isPhotoTaken && urlOfPhoto !== undefined}<img
+					alt="Twoje zdjęcie"
+					src={urlOfPhoto} /><button
+					onclick={handlers.openDialog}
+					type="button">Zrób ponownie</button
+				>{:else}<button
+					onclick={handlers.openDialog}
+					type="button">Dodaj zdjęcie</button
+				>{/if}{/if}{#if message}<p>{message}</p>{/if}<input
 			bind:this={photoInput}
 			hidden={isEnhanced}
 			name="photo"
 			required
-			type="file" /></label
-	><dialog bind:this={dialog}
-		><video
-			autoplay
-			bind:this={video}
-			muted
-			playsinline></video
-		><div
-			><button
-				onclick={handlers.takePhoto}
-				type="button">Zrób zdjęcie</button
-			><button
-				onclick={handlers.closeDialog}
-				type="button">Anuluj</button
-			></div
-		></dialog
+			type="file" /><dialog bind:this={dialog}
+			><video
+				autoplay
+				bind:this={video}
+				muted
+				playsinline></video
+			><div
+				><button
+					onclick={handlers.takePhoto}
+					type="button">Zrób zdjęcie</button
+				><button
+					onclick={handlers.closeDialog}
+					type="button">Anuluj</button
+				></div
+			></dialog
+		></label
 	></div>
 
 <style lang="scss">

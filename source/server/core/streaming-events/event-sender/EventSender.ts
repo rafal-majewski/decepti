@@ -1,5 +1,6 @@
 import {creatingStreamWithController_} from "./creating-stream-with-controller/module.ts";
 import type {streamWithController_} from "./stream-with-controller/module.ts";
+import * as devalue from "devalue";
 export class EventSender<Data> {
 	public static async create<Data>(
 		idOfEvent: string,
@@ -22,22 +23,22 @@ export class EventSender<Data> {
 	private createChunk(data: Data): Uint8Array<ArrayBuffer> {
 		const chunk: Uint8Array<ArrayBuffer> = this.encoder.encode(
 			`event: ${this.idOfEvent}
-data: ${JSON.stringify(data)}
+data: ${devalue.stringify(data)}
 
 `,
 		);
 		return chunk;
 	}
-	public destroy(): void {
-		this.streamWithController.controller.close();
-		return;
-	}
 	private readonly encoder: TextEncoder = new TextEncoder();
 	private readonly idOfEvent: string;
 	public send(data: Data): void {
 		const chunk: Uint8Array = this.createChunk(data);
-		this.streamWithController.controller.enqueue(chunk);
-		return;
+		try {
+			this.streamWithController.controller.enqueue(chunk);
+			return;
+		} catch {
+			return;
+		}
 	}
 	public readonly streamWithController: streamWithController_.StreamWithController<Uint8Array>;
 }

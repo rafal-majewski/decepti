@@ -23,10 +23,6 @@ export class Streamer<Data> {
 		this.eventSender = eventSender;
 		this.response = response;
 	}
-	public destroy(): void {
-		this.eventSender.destroy();
-		return;
-	}
 	private readonly eventSender: eventSender_.EventSender<Data>;
 	public feed(data: Data): void {
 		this.eventSender.send(data);

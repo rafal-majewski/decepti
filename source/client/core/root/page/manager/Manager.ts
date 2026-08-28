@@ -1,4 +1,5 @@
 import {resolve} from "$app/paths";
+import * as devalue from "devalue";
 import {on} from "svelte/events";
 export class Manager {
 	public static create(
@@ -7,16 +8,14 @@ export class Manager {
 		const eventSource: EventSource = new EventSource(resolve(`/events`));
 		const stopperOfHandler: ReturnType<typeof on> = on(
 			eventSource,
-			`playersCount`,
+			`countOfPlayersOfGameUpdated`,
 			function handlePlayersCount(event: Event): void {
 				if (event instanceof MessageEvent) {
-					const numberOfPlayers: number = Number(event.data);
-					if (Number.isFinite(numberOfPlayers)) {
-						onNumberOfPlayersUpdated(numberOfPlayers);
-						return;
-					} else {
-						return;
-					}
+					const numberOfPlayers: number = devalue.parse(
+						event.data as string,
+					) as number;
+					onNumberOfPlayersUpdated(numberOfPlayers);
+					return;
 				} else {
 					return;
 				}

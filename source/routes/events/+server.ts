@@ -7,7 +7,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 	const instances_ = await server_.importingInstances_.import_();
 	const streamer: server_.core_.streamingEvents_.Streamer<number> =
 		await server_.core_.streamingEvents_.Streamer.create<number>(
-			`playersCount`,
+			`countOfPlayersOfGameUpdated`,
 		);
 	const initialGame: server_.core_.game_.Game =
 		instances_.storageOfGame_.storageOfGame.getCurrentGame();
@@ -20,7 +20,6 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		`abort`,
 		function handleAbort(): void {
 			instances_.storageOfGame_.storageOfGame.removeListener(handleGameUpdated);
-			streamer.destroy();
 			return;
 		},
 		{once: true},
