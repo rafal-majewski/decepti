@@ -2,7 +2,7 @@ import type {client_} from "../../client/module.ts";
 import {server_} from "../../server/module.ts";
 import type {PageServerLoadEvent} from "./$types.d.ts";
 import {redirect} from "@sveltejs/kit";
-type Result = {game: client_.core_.snapshotOfGame_.Snapshot};
+type Result = {readonly game: client_.core_.snapshotOfGame_.Snapshot};
 export async function load(event: PageServerLoadEvent): Promise<Result> {
 	const instances_ = await server_.importingInstances_.import_();
 	const currentGame: server_.core_.game_.Game =

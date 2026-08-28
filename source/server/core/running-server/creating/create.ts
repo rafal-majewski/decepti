@@ -17,7 +17,7 @@ export async function create(
 		The handler gets generated during the building process, so we need to import it dynamically.
 	*/
 	const {handler}: {readonly handler: RequestListener} = await import(
-		/* @vite-ignore */ `${dirname(fileURLToPath(import.meta.url))}/../../handler.js`
+		/* @vite-ignore */ `${dirname(fileURLToPath(import.meta.url))}/../../../handler.js`
 	);
 	const server: Server = await determining_.determine(tls, handler);
 	return server;

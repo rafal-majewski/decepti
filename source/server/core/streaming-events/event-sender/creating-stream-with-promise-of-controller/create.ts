@@ -1,5 +1,7 @@
 import type {streamWithPromiseOfController_} from "../stream-with-promise-of-controller/module.ts";
-export function create<Data>(): streamWithPromiseOfController_.StreamWithPromiseOfController<Data> {
+export function create<
+	Data,
+>(): streamWithPromiseOfController_.StreamWithPromiseOfController<Data> {
 	const promiseAndResolversOfController =
 		Promise.withResolvers<ReadableStreamDefaultController<Data>>();
 	const stream: ReadableStream<Data> = new ReadableStream<Data>({

@@ -1,12 +1,11 @@
 import {resolve} from "$app/paths";
-import {client_} from "../../client/module.ts";
 import {server_} from "../../server/module.ts";
 import type {Actions, RequestEvent} from "./$types.d.ts";
 import {stringifyingZodIssues} from "@native-typescript/stringifying-zod-issues";
 import {type ActionFailure, fail, redirect} from "@sveltejs/kit";
 import {z} from "zod";
 const schemaForInputData = z.strictObject({
-	gender: client_.core_.root_.joiningGame_.schemaForGender_.schema,
+	gender: server_.core_.gender_.schema,
 	name: z.string().nonempty(),
 	photo: z.instanceof(File),
 });
@@ -31,9 +30,13 @@ export const actions = {
 				httpOnly: true,
 				path: `/`,
 			});
+			event.cookies.set(`idOfPlayer`, newPlayer.id, {
+				httpOnly: true,
+				path: `/`,
+			});
 			redirect(303, resolve(`/game`));
 		} else {
-			const result = fail(400, {
+			const result: Result = fail(400, {
 				issues: stringifyingZodIssues.stringifyZodIssues(
 					resultOfValidatingInputData.error.issues,
 				),

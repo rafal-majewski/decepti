@@ -17,6 +17,6 @@
 		name="theme-color" />
 </svelte:head>
 
-{@render props.children()}
+<main>{@render props.children()}</main>
 
 <style lang="scss"></style>

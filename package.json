@@ -71,7 +71,7 @@
 		"prettier:check": "node --env-file-if-exists='./.env' ./node_modules/.bin/prettier --check .",
 		"prettier:fix": "node --env-file-if-exists='./.env' ./node_modules/.bin/prettier --write .",
 		"release-it": "node --env-file-if-exists='./.env' ./node_modules/.bin/release-it --config='./release-it.config.ts'",
-		"start:build": "node --env-file-if-exists='./.env' ./build/server/chunks/hooks.server-*.js",
+		"start:build": "node --env-file-if-exists='./.env' ./build/server/chunks/entries/hooks.server.js-*.js",
 		"start:development": "node --env-file-if-exists='./.env' ./node_modules/.bin/vite dev --configLoader=native",
 		"storybook:start": "node --env-file-if-exists='./.env' ./node_modules/.bin/storybook dev --config-dir='./storybook' --exact-port --port=6006",
 		"stylelint:check": "node --env-file-if-exists='./.env' ./node_modules/.bin/stylelint '**/*.{css,scss,svelte}' --max-warnings=0",

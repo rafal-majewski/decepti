@@ -14,9 +14,10 @@ export class Manager {
 			eventSource,
 			`gameUpdated`,
 			function handleGameUpdated(event: Event): void {
-				if (event instanceof MessageEvent) {
+				if (event instanceof MessageEvent && typeof event.data === `string`) {
+					/* eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion */
 					const updatedGame: snapshotOfGame_.Snapshot = devalue.parse(
-						event.data as string,
+						event.data,
 					) as snapshotOfGame_.Snapshot;
 					onGameUpdated(updatedGame);
 					return;

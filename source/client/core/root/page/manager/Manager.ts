@@ -10,10 +10,9 @@ export class Manager {
 			eventSource,
 			`countOfPlayersOfGameUpdated`,
 			function handlePlayersCount(event: Event): void {
-				if (event instanceof MessageEvent) {
-					const numberOfPlayers: number = devalue.parse(
-						event.data as string,
-					) as number;
+				if (event instanceof MessageEvent && typeof event.data === `string`) {
+					/* eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion */
+					const numberOfPlayers: number = devalue.parse(event.data) as number;
 					onNumberOfPlayersUpdated(numberOfPlayers);
 					return;
 				} else {

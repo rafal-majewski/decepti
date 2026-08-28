@@ -1,7 +1,8 @@
 export * from "./converting-form-data-to-object/module.ts";
 export * from "./environment/module.ts";
 export * from "./game/module.ts";
-export type * from "./gender/module.ts";
+export * from "./gender/module.ts";
+export * from "./message/module.ts";
 export * from "./player/module.ts";
 export * from "./running-entrypoint/module.ts";
 export * from "./running-server/module.ts";

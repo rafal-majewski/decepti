@@ -33,13 +33,14 @@ export class Player {
 	public readonly photo: File;
 	public snapshotify(
 		idOfGame: string,
-	): client_.core_.snapshotOfPlayer_.Snapshot {
-		const snapshotOfThis: client_.core_.snapshotOfPlayer_.Snapshot = {
-			gender: this.gender,
-			id: this.id,
-			name: this.name,
-			urlOfPhoto: resolve(`/game/${idOfGame}/players/${this.id}/photo`),
-		};
+	): client_.core_.snapshotOfGame_.snapshotOfPlayer_.Snapshot {
+		const snapshotOfThis: client_.core_.snapshotOfGame_.snapshotOfPlayer_.Snapshot =
+			{
+				gender: this.gender,
+				id: this.id,
+				name: this.name,
+				urlOfPhoto: resolve(`/game/${idOfGame}/players/${this.id}/photo`),
+			};
 		return snapshotOfThis;
 	}
 }
