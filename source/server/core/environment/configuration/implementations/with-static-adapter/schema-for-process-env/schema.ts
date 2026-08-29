@@ -11,6 +11,11 @@ export const schema = z
 		const configuration: WithStaticAdapterConfiguration = {
 			adapter: {id: `static`},
 			type: `withStaticAdapter`,
+			webPush: {
+				email: processEnv.WEB_PUSH__EMAIL,
+				privateKey: processEnv.WEB_PUSH__PRIVATE_KEY,
+				publicKey: processEnv.WEB_PUSH__PUBLIC_KEY,
+			},
 		};
 		return configuration;
 	});

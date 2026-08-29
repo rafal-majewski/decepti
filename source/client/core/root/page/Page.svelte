@@ -20,16 +20,45 @@
 	});
 </script>
 
-<div>
-	<header>
-		<h1>Decepti</h1>
-		<counterOfPlayers_.CounterOfPlayers countOfPlayers={countOfPlayers}
-		></counterOfPlayers_.CounterOfPlayers>
-	</header>
-	<section>
-		<h2>Dołącz do rozgrywki</h2>
-		<joiningGame_.Form></joiningGame_.Form>
-	</section>
-</div>
+<div
+	><header
+		><h1>Decepti</h1><counterOfPlayers_.CounterOfPlayers
+			countOfPlayers={countOfPlayers}></counterOfPlayers_.CounterOfPlayers
+		></header
+	><section
+		><h2>Dołącz do rozgrywki</h2><joiningGame_.Form></joiningGame_.Form
+		></section
+	></div>
 
-<style lang="scss"></style>
+<style lang="scss">
+	div {
+		align-items: center;
+		display: block flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin: 0 auto;
+		max-width: 28rem;
+		min-height: 100dvh;
+		padding: 2rem 1rem;
+	}
+	header {
+		display: block flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		text-align: center;
+	}
+	section {
+		background: var(--color-surface);
+		border: 0.0625rem solid var(--color-border);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-panel);
+		display: block flex;
+		flex-direction: column;
+		gap: 1rem;
+		padding: 1.5rem;
+		width: 100%;
+	}
+	section h2 {
+		font-size: 1.25rem;
+	}
+</style>

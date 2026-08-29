@@ -14,15 +14,16 @@
 	function takePhoto(): void {
 		if (video === undefined) {
 			return;
+		} else {
+			capturingSelfie_
+				.capture(video)
+				.then(function handlePhoto(photo: File): void {
+					props.onPhoto(photo);
+				})
+				.catch(function handleCaptureError(): void {
+					message = `Nie udało się zrobić zdjęcia.`;
+				});
 		}
-		capturingSelfie_
-			.capture(video)
-			.then(function handlePhoto(photo: File): void {
-				props.onPhoto(photo);
-			})
-			.catch(function handleCaptureError(): void {
-				message = `Nie udało się zrobić zdjęcia.`;
-			});
 	}
 	$effect(function toggleDialog(): void {
 		if (props.isOpen) {
@@ -35,23 +36,24 @@
 	$effect(function setCamera(): (() => void) | undefined {
 		if (!props.isOpen || video === undefined) {
 			return;
+		} else {
+			const currentVideo = video;
+			let mediaStream: MediaStream | null = null;
+			navigator.mediaDevices
+				.getUserMedia({audio: false, video: {facingMode: `user`}})
+				.then(function handleStream(result: MediaStream): void {
+					mediaStream = result;
+					currentVideo.srcObject = result;
+				})
+				.catch(function handleCameraError(): void {
+					message = `Nie udało się uzyskać dostępu do kamery.`;
+				});
+			return function stopCamera(): void {
+				mediaStream?.getTracks().forEach(function stopTrack(track): void {
+					track.stop();
+				});
+			};
 		}
-		const currentVideo = video;
-		let mediaStream: MediaStream | null = null;
-		navigator.mediaDevices
-			.getUserMedia({audio: false, video: {facingMode: `user`}})
-			.then(function handleStream(result: MediaStream): void {
-				mediaStream = result;
-				currentVideo.srcObject = result;
-			})
-			.catch(function handleCameraError(): void {
-				message = `Nie udało się uzyskać dostępu do kamery.`;
-			});
-		return function stopCamera(): void {
-			mediaStream?.getTracks().forEach(function stopTrack(track): void {
-				track.stop();
-			});
-		};
 	});
 </script>
 

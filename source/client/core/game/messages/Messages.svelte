@@ -15,12 +15,19 @@
 
 <style lang="scss">
 	section {
+		background: var(--color-bg-2);
 		display: block flex;
 		flex-direction: column;
 		flex-grow: 1;
+		min-height: 0;
 	}
 	h2 {
-		font-size: 1.25rem;
-		margin: 0;
+		border-bottom: 0.0625rem solid var(--color-border);
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		padding: 1rem;
+		text-transform: uppercase;
 	}
 </style>

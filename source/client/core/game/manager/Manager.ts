@@ -5,7 +5,7 @@ import {on} from "svelte/events";
 export class Manager {
 	public static create(
 		idOfGame: string,
-		onGameUpdated: (game: snapshotOfGame_.Snapshot) => void,
+		onGameUpdated: (game: null | snapshotOfGame_.Snapshot) => void,
 	): Manager {
 		const eventSource: EventSource = new EventSource(
 			resolve(`/game/${idOfGame}/events`),
@@ -16,9 +16,9 @@ export class Manager {
 			function handleGameUpdated(event: Event): void {
 				if (event instanceof MessageEvent && typeof event.data === `string`) {
 					/* eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion */
-					const updatedGame: snapshotOfGame_.Snapshot = devalue.parse(
+					const updatedGame: null | snapshotOfGame_.Snapshot = devalue.parse(
 						event.data,
-					) as snapshotOfGame_.Snapshot;
+					) as null | snapshotOfGame_.Snapshot;
 					onGameUpdated(updatedGame);
 					return;
 				} else {

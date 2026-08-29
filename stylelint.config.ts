@@ -5,6 +5,7 @@ export default {
 		{customSyntax: `postcss-html`, files: [`**/*.html`, `**/*.svelte`]},
 	],
 	plugins: [`stylelint-order`],
+	referenceFiles: [{files: [`source/client/styles/global.scss`]}],
 	rules: {
 		"alpha-value-notation": [`number`, {exceptProperties: []}],
 		"annotation-no-unknown": [true, {ignoreAnnotations: []}],

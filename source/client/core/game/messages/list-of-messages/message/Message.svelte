@@ -8,9 +8,9 @@
 <li
 	><img
 		alt=""
-		src={props.message.author.urlOfPhoto} /><div
+		src={props.message.author.person.urlOfPhoto} /><div
 		><header
-			><span>{props.message.author.name}</span><time
+			><span>{props.message.author.person.name}</span><time
 				datetime={props.message.timestamp.toISOString()}
 				>{formattingTimestamp_.format(props.message.timestamp)}</time
 			></header
@@ -21,7 +21,7 @@
 	li {
 		align-items: flex-start;
 		display: block flex;
-		gap: 1rem;
+		gap: 0.75rem;
 	}
 	img {
 		border-radius: 50%;
@@ -32,6 +32,7 @@
 		display: block flex;
 		flex-direction: column;
 		gap: 0.25rem;
+		min-width: 0;
 	}
 	header {
 		align-items: baseline;
@@ -39,15 +40,16 @@
 		gap: 0.5rem;
 	}
 	span {
-		color: rgb(220 221 222);
-		font-weight: 600;
+		color: var(--color-text);
+		font-weight: 700;
 	}
 	time {
-		color: rgb(142 146 151);
+		color: var(--color-text-muted);
 		font-size: 0.75rem;
 	}
 	p {
-		color: rgb(220 221 222);
+		color: var(--color-text);
 		margin: 0;
+		overflow-wrap: anywhere;
 	}
 </style>

@@ -1,8 +1,8 @@
 import {resolve} from "$app/paths";
-import type {core_} from "../core/module.ts";
-import {importingInstances_} from "../importing-instances/module.ts";
-import type {doer_} from "./Doer/module.ts";
-import type {result_} from "./Result/module.ts";
+import type {core_} from "../../core/module.ts";
+import {importingInstances_} from "../../importing-instances/module.ts";
+import type {doer_} from "../Doer/module.ts";
+import type {result_} from "../Result/module.ts";
 import {fail, redirect} from "@sveltejs/kit";
 export async function handleAction(
 	idOfPlayer: null | string,

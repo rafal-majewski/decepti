@@ -19,6 +19,7 @@
 		gap: 1rem;
 		list-style-type: none;
 		margin: 0;
+		min-height: 0;
 		overflow-y: auto;
 		padding: 1rem;
 	}

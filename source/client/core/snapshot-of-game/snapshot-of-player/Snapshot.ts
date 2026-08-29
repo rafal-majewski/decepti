@@ -1,7 +1,7 @@
-import type {snapshotOfGender_} from "./snapshot-of-gender/module.ts";
+import type {snapshotOfPerson_} from "./snapshot-of-person/module.ts";
+import type {snapshotOfRole_} from "./snapshot-of-role/module.ts";
 export interface Snapshot {
-	readonly gender: snapshotOfGender_.Snapshot;
 	readonly id: string;
-	readonly name: string;
-	readonly urlOfPhoto: string;
+	readonly person: snapshotOfPerson_.Snapshot;
+	readonly roles: null | snapshotOfRole_.Snapshot;
 }

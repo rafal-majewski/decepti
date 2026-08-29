@@ -4,4 +4,8 @@
 
 <p>Liczba graczy: {props.countOfPlayers}</p>
 
-<style lang="scss"></style>
+<style lang="scss">
+	p {
+		color: var(--color-text-muted);
+	}
+</style>

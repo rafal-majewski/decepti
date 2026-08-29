@@ -15,6 +15,9 @@ export async function run(
 			SERVER__BIND__ADDRESS: `::`,
 			SERVER__BIND__PORT__NUMBER: numberOfPortOfBindOfServer.toString(10),
 			SERVER__BIND__PORT__TLS__IS_ENABLED: `no`,
+			WEB_PUSH__EMAIL: `mailto:test@example.com`,
+			WEB_PUSH__PRIVATE_KEY: `private-key`,
+			WEB_PUSH__PUBLIC_KEY: `public-key`,
 		} satisfies z.input<
 			typeof source_.server_.core_.environment_.configuration_.implementations_.withNodeAdapter_.schemaForProcessEnv_.schema
 		>)

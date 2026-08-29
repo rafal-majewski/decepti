@@ -6,6 +6,9 @@ env:
   SERVER__BIND__ADDRESS: "::1"
   SERVER__BIND__PORT__NUMBER: "5173"
   SERVER__BIND__PORT__TLS__IS_ENABLED: "no"
+  WEB_PUSH__EMAIL: "mailto:ci@example.com"
+  WEB_PUSH__PRIVATE_KEY: "ci-private-key"
+  WEB_PUSH__PUBLIC_KEY: "ci-public-key"
 jobs:
   commitlint_check:
     name: "commitlint check"

@@ -13,9 +13,13 @@
 				const dataTransfer = new DataTransfer();
 				dataTransfer.items.add(photo);
 				props.input.files = dataTransfer.files;
+			} else {
+				/* empty */
 			}
 			if (urlOfPhoto !== undefined) {
 				URL.revokeObjectURL(urlOfPhoto);
+			} else {
+				/* empty */
 			}
 			urlOfPhoto = URL.createObjectURL(photo);
 			isPhotoTaken = true;
@@ -42,9 +46,9 @@
 
 <style lang="scss">
 	img {
-		background-color: rgb(47 49 54);
-		border: 0.125rem solid rgb(88 101 242);
-		border-radius: 0.5rem;
+		background-color: var(--color-surface-2);
+		border: 0.125rem solid var(--color-accent);
+		border-radius: var(--radius-md);
 		display: block flow;
 		height: auto;
 		max-height: 16rem;

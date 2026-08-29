@@ -4,26 +4,9 @@ function getNumberOfPlayers(game: server_.core_.game_.Game): number {
 	return game.players.size;
 }
 export async function GET(event: RequestEvent): Promise<Response> {
-	const instances_ = await server_.importingInstances_.import_();
-	const streamer: server_.core_.streamingEvents_.Streamer<number> =
-		await server_.core_.streamingEvents_.Streamer.create<number>(
-			`countOfPlayersOfGameUpdated`,
-		);
-	const initialGame: server_.core_.game_.Game =
-		instances_.storageOfGame_.storageOfGame.getCurrentGame();
-	streamer.feed(getNumberOfPlayers(initialGame));
-	function handleGameUpdated(updatedGame: server_.core_.game_.Game): void {
-		streamer.feed(getNumberOfPlayers(updatedGame));
-		return;
-	}
-	event.request.signal.addEventListener(
-		`abort`,
-		function handleAbort(): void {
-			instances_.storageOfGame_.storageOfGame.removeListener(handleGameUpdated);
-			return;
-		},
-		{once: true},
+	return await server_.handlingRequests_.streamEvents(
+		event,
+		`countOfPlayersOfGameUpdated`,
+		getNumberOfPlayers,
 	);
-	instances_.storageOfGame_.storageOfGame.addListener(handleGameUpdated);
-	return streamer.response;
 }

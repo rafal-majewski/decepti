@@ -6,4 +6,5 @@ export interface Environment<
 > {
 	readonly configurationOfAdapter: ConfigurationOfAdapterToUse;
 	readonly type: TypeToUse;
+	readonly webPush: configuration_.fields_.webPush_.WebPush;
 }

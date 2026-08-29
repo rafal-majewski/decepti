@@ -4,6 +4,8 @@
 	const props: PageProps = $props();
 </script>
 
-<client_.core_.game_.Game game={props.data.game}></client_.core_.game_.Game>
+<client_.core_.game_.Game
+	game={props.data.game}
+	vapidPublicKey={props.data.vapidPublicKey}></client_.core_.game_.Game>
 
 <style lang="scss"></style>

@@ -13,16 +13,19 @@
 
 <style lang="scss">
 	aside {
-		background-color: rgb(47 49 54);
-		border-right: 0.0625rem solid rgb(32 34 37);
+		background: var(--color-surface);
+		border-right: 0.0625rem solid var(--color-border);
 		display: block flex;
 		flex-direction: column;
 		gap: 1rem;
+		height: 100%;
 		padding: 1rem;
-		width: 16rem;
 	}
 	h2 {
-		font-size: 1.25rem;
-		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
 	}
 </style>

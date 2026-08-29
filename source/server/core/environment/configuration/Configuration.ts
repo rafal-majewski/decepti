@@ -5,4 +5,5 @@ export interface Configuration<
 > {
 	readonly adapter: AdapterToUse;
 	readonly type: TypeToUse;
+	readonly webPush: fields_.webPush_.WebPush;
 }

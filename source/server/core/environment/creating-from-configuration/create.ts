@@ -10,6 +10,7 @@ export function create(
 				{
 					configurationOfAdapter: configuration.adapter,
 					type: `withNodeAdapter`,
+					webPush: configuration.webPush,
 				};
 			return environment;
 		}
@@ -18,6 +19,7 @@ export function create(
 				{
 					configurationOfAdapter: configuration.adapter,
 					type: `withStaticAdapter`,
+					webPush: configuration.webPush,
 				};
 			return environment;
 		}

@@ -1,7 +1,2 @@
 export type State =
-	| `discussing`
-	| `end`
-	| `lobby`
-	| `maintaining`
-	| `planning`
-	| `returning`;
+	`discussing` | `end` | `lobby` | `maintaining` | `planning` | `returning`;

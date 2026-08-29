@@ -10,4 +10,10 @@
 		><photoOfPlayer_.PhotoOfPlayer></photoOfPlayer_.PhotoOfPlayer></div
 	></fieldset>
 
-<style lang="scss"></style>
+<style lang="scss">
+	div {
+		display: block flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>

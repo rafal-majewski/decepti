@@ -22,7 +22,4 @@
 		setInput={setPhotoInput}></input_.Input
 	></label>
 
-<style lang="scss">
-	label {
-	}
-</style>
+<style lang="scss"></style>

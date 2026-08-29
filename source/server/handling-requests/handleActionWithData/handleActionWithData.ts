@@ -1,7 +1,7 @@
-import {core_} from "../core/module.ts";
-import type {doerWithData_} from "./DoerWithData/module.ts";
-import {handleAction} from "./handleAction.ts";
-import type {result_} from "./Result/module.ts";
+import {core_} from "../../core/module.ts";
+import type {doerWithData_} from "../DoerWithData/module.ts";
+import {handleAction} from "../handleAction/module.ts";
+import type {result_} from "../Result/module.ts";
 import {stringifyingZodIssues} from "@native-typescript/stringifying-zod-issues";
 import {fail, type RequestEvent} from "@sveltejs/kit";
 import type {z} from "zod";
@@ -19,7 +19,7 @@ export async function handleActionWithData<Data>(
 		const result: result_.Result = await handleAction(
 			idOfPlayer === undefined ? null : idOfPlayer,
 			idOfGame,
-			function (context): void {
+			function do_(context): void {
 				doer(context, resultOfValidatingInputData.data);
 				return;
 			},

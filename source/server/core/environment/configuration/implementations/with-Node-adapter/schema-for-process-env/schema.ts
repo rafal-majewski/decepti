@@ -58,6 +58,11 @@ export const schema = z
 				},
 			},
 			type: `withNodeAdapter`,
+			webPush: {
+				email: processEnv.WEB_PUSH__EMAIL,
+				privateKey: processEnv.WEB_PUSH__PRIVATE_KEY,
+				publicKey: processEnv.WEB_PUSH__PUBLIC_KEY,
+			},
 		};
 		return configuration;
 	});

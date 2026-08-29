@@ -1,3 +1,6 @@
 import {z} from "zod";
-/* eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion */
-export const schema = z.object({}) as unknown as z.ZodUnknown;
+export const schema = z.object({
+	WEB_PUSH__EMAIL: z.string().nonempty(),
+	WEB_PUSH__PRIVATE_KEY: z.string().nonempty(),
+	WEB_PUSH__PUBLIC_KEY: z.string().nonempty(),
+});

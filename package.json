@@ -11,6 +11,7 @@
 		"@native-typescript/loader-of-typescript-for-node-js": "4.0.0",
 		"@native-typescript/stringifying-zod-issues": "7.0.0",
 		"devalue": "5.9.2",
+		"web-push": "^3.6.7",
 		"zod": "4.4.3"
 	},
 	"description": "A template of a SvelteKit application.",
@@ -26,6 +27,7 @@
 		"@sveltejs/kit": "2.70.3",
 		"@sveltejs/vite-plugin-svelte": "7.3.0",
 		"@types/node": "25.9.1",
+		"@types/web-push": "^3.6.4",
 		"@typescript-eslint/parser": "8.67.0",
 		"eslint": "10.4.0",
 		"eslint-plugin-import-x": "4.16.2",
