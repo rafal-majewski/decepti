@@ -6,10 +6,13 @@ export const Default = {
 		messages: [
 			{
 				author: {
-					gender: `female`,
 					id: `player-1`,
-					name: `Alicja`,
-					urlOfPhoto: `https://example.com/photo-1.png`,
+					person: {
+						gender: `female`,
+						name: `Alicja`,
+						urlOfPhoto: `https://example.com/photo-1.png`,
+					},
+					roles: {captain: true, guard: false, planner: false, worker: false},
 				},
 				id: `message-1`,
 				text: `Cześć wszystkim!`,
@@ -17,10 +20,13 @@ export const Default = {
 			},
 			{
 				author: {
-					gender: `male`,
 					id: `player-2`,
-					name: `Bartek`,
-					urlOfPhoto: `https://example.com/photo-2.png`,
+					person: {
+						gender: `male`,
+						name: `Bartek`,
+						urlOfPhoto: `https://example.com/photo-2.png`,
+					},
+					roles: {captain: false, guard: false, planner: true, worker: false},
 				},
 				id: `message-2`,
 				text: `Hej! Gotowi do gry?`,

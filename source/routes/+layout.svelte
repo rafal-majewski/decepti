@@ -4,19 +4,15 @@
 	const props: {readonly children: Snippet<[]>} = $props();
 </script>
 
-<svelte:head>
-	<link
+<svelte:head
+	><link
 		href={asset(`/favicon.svg`)}
 		rel="icon"
-		type="image/svg+xml" />
-	<link
+		type="image/svg+xml" /><link
 		href={asset(`/manifest.json`)}
-		rel="manifest" />
-	<meta
+		rel="manifest" /><meta
 		content="#ffffff"
-		name="theme-color" />
-</svelte:head>
-
-<main>{@render props.children()}</main>
+		name="theme-color" /></svelte:head
+><main>{@render props.children()}</main>
 
 <style lang="scss"></style>

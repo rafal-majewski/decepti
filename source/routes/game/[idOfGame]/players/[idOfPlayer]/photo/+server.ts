@@ -11,8 +11,8 @@ export async function GET(event: RequestEvent): Promise<Response> {
 			const response: Response = new Response(null, {status: 404});
 			return response;
 		} else {
-			const response: Response = new Response(player.photo, {
-				headers: {"content-type": player.photo.type},
+			const response: Response = new Response(player.person.photo, {
+				headers: {"content-type": player.person.photo.type},
 			});
 			return response;
 		}

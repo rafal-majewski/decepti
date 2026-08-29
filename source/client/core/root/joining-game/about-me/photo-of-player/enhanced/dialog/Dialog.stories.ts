@@ -4,10 +4,10 @@ export default {component: Dialog} satisfies Meta<typeof Dialog>;
 export const Default = {
 	args: {
 		isOpen: false,
-		onClose: (): void => {
+		onClose: function onClose(): void {
 			return;
 		},
-		onPhoto: (): void => {
+		onPhoto: function onPhoto(): void {
 			return;
 		},
 	},

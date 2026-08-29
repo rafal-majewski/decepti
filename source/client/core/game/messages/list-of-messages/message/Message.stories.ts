@@ -5,10 +5,13 @@ export const Default = {
 	args: {
 		message: {
 			author: {
-				gender: `female`,
 				id: `player-1`,
-				name: `Alicja`,
-				urlOfPhoto: `https://example.com/photo-1.png`,
+				person: {
+					gender: `female`,
+					name: `Alicja`,
+					urlOfPhoto: `https://example.com/photo-1.png`,
+				},
+				roles: {captain: true, guard: false, planner: false, worker: false},
 			},
 			id: `message-1`,
 			text: `Cześć wszystkim!`,

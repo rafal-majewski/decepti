@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {client_} from "../../client/module.ts";
+	import {client_} from "../../../client/module.ts";
 	import type {PageProps} from "./$types.d.ts";
 	const props: PageProps = $props();
 </script>

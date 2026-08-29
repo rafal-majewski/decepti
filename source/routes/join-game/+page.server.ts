@@ -26,15 +26,11 @@ export const actions = {
 			instances_.storageOfGame_.storageOfGame.addPlayer(newPlayer);
 			const currentGame: server_.core_.game_.Game =
 				instances_.storageOfGame_.storageOfGame.getCurrentGame();
-			event.cookies.set(`idOfJoinedGame`, currentGame.id, {
-				httpOnly: true,
-				path: `/`,
-			});
 			event.cookies.set(`idOfPlayer`, newPlayer.id, {
 				httpOnly: true,
 				path: `/`,
 			});
-			redirect(303, resolve(`/game`));
+			redirect(303, resolve(`/game/${currentGame.id}`));
 		} else {
 			const result: Result = fail(400, {
 				issues: stringifyingZodIssues.stringifyZodIssues(

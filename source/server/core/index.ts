@@ -1,11 +1,16 @@
+export type * from "./attitude/module.ts";
+export * from "./choice/module.ts";
 export * from "./converting-form-data-to-object/module.ts";
 export * from "./environment/module.ts";
 export * from "./game/module.ts";
 export * from "./gender/module.ts";
 export * from "./message/module.ts";
 export * from "./player/module.ts";
+export * from "./roles/module.ts";
 export * from "./running-entrypoint/module.ts";
 export * from "./running-server/module.ts";
+export * from "./skills/module.ts";
+export type * from "./state-of-death/module.ts";
 export * from "./storage-of-game/module.ts";
 export * from "./streaming-events/module.ts";
 export * from "./validating-form-data/module.ts";
