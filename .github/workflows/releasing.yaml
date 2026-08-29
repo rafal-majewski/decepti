@@ -71,7 +71,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: "Setup Node.js"
-        uses: "actions/setup-node@v6.3.0"
+        uses: "actions/setup-node@v7.0.0"
         with:
           cache: "npm"
           node-version: "${{env.NODE_JS__VERSION}}"
