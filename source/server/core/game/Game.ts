@@ -626,6 +626,36 @@ export class Game {
 			}
 		}
 	}
+	public ensurePlanner(): Game {
+		if (this.getPlannerId() !== null) {
+			return this;
+		} else {
+			const captain: player_.Player | undefined = Array.from(
+				this.players.values(),
+			).find(function findAliveCaptain(player: player_.Player): boolean {
+				return (
+					player.stateOfDeath === `alive`
+					&& player.imprisonment !== `imprisoned`
+					&& (player.roles?.captain ?? false)
+				);
+			});
+			const candidate: player_.Player | undefined =
+				captain
+				?? Array.from(this.players.values()).find(function findAlivePlayer(
+						player: player_.Player,
+					): boolean {
+						return (
+							player.stateOfDeath === `alive`
+							&& player.imprisonment !== `imprisoned`
+						);
+					});
+			if (candidate === undefined) {
+				return this;
+			} else {
+				return this.replacePlayer(candidate.addRole(`planner`));
+			}
+		}
+	}
 	public finishVoting(idOfPlayer: player_.Player[`id`], choice: boolean): Game {
 		if (this.state !== `discussing`) {
 			return this;
