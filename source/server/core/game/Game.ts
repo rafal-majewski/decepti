@@ -14,6 +14,7 @@ import {snapshotifyingPlayers_} from "./snapshotifying-players/module.ts";
 import type {state_} from "./state/module.ts";
 const defaultNumberOfTasksPerPlayer: number = 12;
 const defaultPercentageOfHostile: number = 20;
+const probabilityOfSkill: number = 0.3;
 function shuffleTasks(tasks: readonly task_.Task[]): task_.Task[] {
 	const shuffled: task_.Task[] = [...tasks];
 	for (let index: number = shuffled.length - 1; index > 0; index = index - 1) {
@@ -240,11 +241,11 @@ export class Game {
 					}
 					const attitude: attitude_.Attitude =
 						idsOfHostilePlayers.has(player.id) ? `hostile` : `friendly`;
-					const skills: skills_.Skills = {
-						escapist: Math.random() < 0.1,
-						medium: Math.random() < 0.1,
-						trustworthy: Math.random() < 0.1,
-					};
+				const skills: skills_.Skills = {
+					escapist: Math.random() < probabilityOfSkill,
+					medium: Math.random() < probabilityOfSkill,
+					trustworthy: Math.random() < probabilityOfSkill,
+				};
 					const updatedPlayer: player_.Player = player
 						.addRole(role)
 						.addRole(`worker`)
