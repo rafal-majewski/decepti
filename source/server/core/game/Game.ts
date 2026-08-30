@@ -1100,19 +1100,8 @@ export class Game {
 		}
 	}
 	public tallyAndExpel(): Game {
-		let maximumNumberOfVotes: number = 0;
-		for (const voter of this.players.values()) {
-			if (
-				voter.stateOfDeath === `alive`
-				&& voter.imprisonment !== `imprisoned`
-			) {
-				maximumNumberOfVotes = maximumNumberOfVotes + weightOfVote(voter);
-			} else {
-				/* empty */
-			}
-		}
-		const idsOfPlayersToJail: string[] = [];
-		const idsOfPlayersToKill: string[] = [];
+		const numberOfVotesOfEachTarget: Map<player_.Player[`id`], number> =
+			new Map<player_.Player[`id`], number>();
 		for (const [idOfTarget, target] of this.players) {
 			if (target.stateOfDeath !== `alive`) {
 				continue;
@@ -1129,17 +1118,40 @@ export class Game {
 						/* empty */
 					}
 				}
-				if (numberOfVotesToExpel > maximumNumberOfVotes / 2) {
-					idsOfPlayersToKill.push(idOfTarget);
-				} else if (
-					maximumNumberOfVotes > 0
-					&& numberOfVotesToExpel * 2 === maximumNumberOfVotes
-				) {
-					idsOfPlayersToJail.push(idOfTarget);
+				numberOfVotesOfEachTarget.set(idOfTarget, numberOfVotesToExpel);
+			}
+		}
+		let maximumNumberOfVotes: number = 0;
+		for (const numberOfVotes of numberOfVotesOfEachTarget.values()) {
+			if (numberOfVotes > maximumNumberOfVotes) {
+				maximumNumberOfVotes = numberOfVotes;
+			} else {
+				/* empty */
+			}
+		}
+		const idsOfPlayersToJail: string[] = [];
+		const idsOfPlayersToKill: string[] = [];
+		if (maximumNumberOfVotes > 0) {
+			const idsOfTargetsWithMostVotes: string[] = [];
+			for (const [idOfTarget, numberOfVotes] of numberOfVotesOfEachTarget) {
+				if (numberOfVotes === maximumNumberOfVotes) {
+					idsOfTargetsWithMostVotes.push(idOfTarget);
 				} else {
 					/* empty */
 				}
 			}
+			if (idsOfTargetsWithMostVotes.length === 1) {
+				const idOfTarget: string | undefined = idsOfTargetsWithMostVotes[0];
+				if (idOfTarget === undefined) {
+					/* empty */
+				} else {
+					idsOfPlayersToKill.push(idOfTarget);
+				}
+			} else {
+				idsOfPlayersToJail.push(...idsOfTargetsWithMostVotes);
+			}
+		} else {
+			/* empty */
 		}
 		let updatedThis: Game = this.releaseAllFromJail();
 		for (const idOfTarget of idsOfPlayersToKill) {
@@ -1163,7 +1175,11 @@ export class Game {
 		if (updatedThis.getWinner() !== null) {
 			return updatedThis.setState(`end`).revealDeaths();
 		} else {
-			return updatedThis.setState(`planning`).resetForNewRound().planTasks();
+			return updatedThis
+				.ensurePlanner()
+				.setState(`planning`)
+				.resetForNewRound()
+				.planTasks();
 		}
 	}
 	public readonly tasks: null | readonly task_.Task[];

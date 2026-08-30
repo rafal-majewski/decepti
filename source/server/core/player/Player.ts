@@ -216,6 +216,7 @@ export class Player {
 		const snapshotOfThis: client_.core_.snapshotOfGame_.snapshotOfPlayer_.Snapshot =
 			{
 				id: this.id,
+				isKnownToBeDead: (this.stateOfDeath ?? `alive`) !== `alive`,
 				person: this.person.snapshotify(idOfGame, this.id),
 				roles: this.roles,
 			};
