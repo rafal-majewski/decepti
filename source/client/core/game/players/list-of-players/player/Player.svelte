@@ -14,11 +14,13 @@
 </script>
 
 <li
+	class:dead={props.player.isKnownToBeDead}
 	><img
 		alt=""
 		src={props.player.person.urlOfPhoto} /><div
 		><span>{props.player.person.name}</span
-		>{#if props.player.roles !== null}<div
+		>{#if props.player.isKnownToBeDead}<em>Nie żyje</em
+			>{/if}{#if props.player.roles !== null}<div
 				>{#each roles as role (role.id)}{#if props.player.roles[role.id]}<span
 							class={role.id}>{role.name}</span
 						>{/if}{/each}</div
@@ -30,6 +32,18 @@
 		align-items: center;
 		display: block flex;
 		gap: 0.75rem;
+	}
+	li.dead {
+		opacity: 0.55;
+	}
+	li.dead img {
+		filter: grayscale(1);
+	}
+	li.dead em {
+		color: var(--color-danger);
+		font-size: 0.75rem;
+		font-style: normal;
+		font-weight: 700;
 	}
 	img {
 		border-radius: 50%;
