@@ -8,6 +8,7 @@ export const Default = {
 			{
 				author: {
 					id: `player-1`,
+					isKnownToBeDead: false,
 					person: {
 						gender: `female`,
 						name: `Alicja`,
@@ -22,6 +23,7 @@ export const Default = {
 			{
 				author: {
 					id: `player-2`,
+					isKnownToBeDead: false,
 					person: {
 						gender: `male`,
 						name: `Bartek`,

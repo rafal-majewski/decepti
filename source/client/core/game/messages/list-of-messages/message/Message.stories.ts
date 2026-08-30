@@ -6,6 +6,7 @@ export const Default = {
 		message: {
 			author: {
 				id: `player-1`,
+				isKnownToBeDead: false,
 				person: {
 					gender: `female`,
 					name: `Alicja`,
