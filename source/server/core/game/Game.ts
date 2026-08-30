@@ -608,24 +608,6 @@ export class Game {
 			}
 		}
 	}
-	public escapeFromJail(idOfPlayer: player_.Player[`id`]): Game {
-		if (this.state !== `maintaining`) {
-			return this;
-		} else {
-			const player: player_.Player | undefined = this.players.get(idOfPlayer);
-			if (
-				player === undefined
-				|| player.stateOfDeath !== `alive`
-				|| player.imprisonment !== `imprisoned`
-				|| !(player.skills?.escapist ?? false)
-				|| (player.hasUsedEscape ?? false)
-			) {
-				return this;
-			} else {
-				return this.replacePlayer(player.escapeFromJail());
-			}
-		}
-	}
 	public ensurePlanner(): Game {
 		if (this.getPlannerId() !== null) {
 			return this;
@@ -653,6 +635,24 @@ export class Game {
 				return this;
 			} else {
 				return this.replacePlayer(candidate.addRole(`planner`));
+			}
+		}
+	}
+	public escapeFromJail(idOfPlayer: player_.Player[`id`]): Game {
+		if (this.state !== `maintaining`) {
+			return this;
+		} else {
+			const player: player_.Player | undefined = this.players.get(idOfPlayer);
+			if (
+				player === undefined
+				|| player.stateOfDeath !== `alive`
+				|| player.imprisonment !== `imprisoned`
+				|| !(player.skills?.escapist ?? false)
+				|| (player.hasUsedEscape ?? false)
+			) {
+				return this;
+			} else {
+				return this.replacePlayer(player.escapeFromJail());
 			}
 		}
 	}
