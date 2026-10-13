@@ -15,7 +15,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout the repository"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@v7.0.1"
         with:
           fetch-depth: 0
       - name: "Setup Node.js"
@@ -45,7 +45,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout the repository"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@v7.0.1"
       - name: "Setup Node.js"
         uses: "actions/setup-node@v6.3.0"
         with:
@@ -64,7 +64,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout the repository"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@v7.0.1"
       - name: "Setup Node.js"
         uses: "actions/setup-node@v6.3.0"
         with:
@@ -83,7 +83,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout the repository"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@v7.0.1"
       - name: "Setup Node.js"
         uses: "actions/setup-node@v6.3.0"
         with:
@@ -102,7 +102,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout the repository"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@v7.0.1"
       - name: "Setup Node.js"
         uses: "actions/setup-node@v6.3.0"
         with:
@@ -121,7 +121,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout the repository"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@v7.0.1"
       - name: "Setup Node.js"
         uses: "actions/setup-node@v6.3.0"
         with:
